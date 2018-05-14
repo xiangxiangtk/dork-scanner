@@ -64,9 +64,16 @@ def printf(lista):
             ch2 = ch.replace("%3D","=")
             print( " " + ch2 )
 
+def export_to_txt(urls):
+  with open('file.txt','w') as file:
+      for item in urls:
+          print>>file, item
+
+
+
 def main():
       usage = """      Usage:
-        Mass_Exploiter.py <search> <pages> <processes>
+        Mass_Exploiter.py <search> <engine> <pages> <processes>
 
             <search>          String to be searched for 
             <engine>          Search engine to be used
@@ -119,6 +126,7 @@ def main():
       for p in all:
             result += [ u for u in p]
             printf( set( result ) )
+      export_to_txt(result)
       print "\n"
       print "#################################################"
       print( " Number of urls : " + str( len( result ) ) )
